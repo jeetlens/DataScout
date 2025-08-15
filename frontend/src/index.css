@@ -1,0 +1,144 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Apple-inspired base styles */
+@layer base {
+  :root {
+    --apple-blue: 0 122 255;
+    --success-green: 52 199 89;
+    --warning-orange: 255 149 0;
+    --error-red: 255 59 48;
+    --text-dark: 29 29 31;
+    --text-medium: 134 134 139;
+    --text-light: 245 245 247;
+  }
+
+  * {
+    font-smooth: antialiased;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  html {
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif;
+  }
+
+  body {
+    @apply bg-background-white text-text-dark;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+  }
+
+  /* Typography scale following Apple's design system */
+  h1 {
+    @apply text-5xl font-semibold leading-tight;
+    font-size: 48px;
+    line-height: 52px;
+  }
+
+  h2 {
+    @apply text-4xl font-semibold leading-tight;
+    font-size: 36px;
+    line-height: 40px;
+  }
+
+  h3 {
+    @apply text-2xl font-semibold leading-tight;
+    font-size: 24px;
+    line-height: 28px;
+  }
+
+  h4 {
+    @apply text-xl font-medium leading-tight;
+    font-size: 20px;
+    line-height: 24px;
+  }
+}
+
+/* Apple-inspired component utilities */
+@layer components {
+  .btn-primary {
+    @apply bg-apple-blue hover:bg-apple-blue/90 text-white px-6 py-3 rounded-apple-sm font-medium transition-all duration-200 shadow-apple-subtle hover:shadow-apple-medium;
+  }
+
+  .btn-secondary {
+    @apply bg-white hover:bg-gray-50 text-apple-blue border border-apple-blue px-6 py-3 rounded-apple-sm font-medium transition-all duration-200 shadow-apple-subtle hover:shadow-apple-medium;
+  }
+
+  .btn-ghost {
+    @apply bg-transparent hover:bg-apple-blue/10 text-apple-blue px-6 py-3 rounded-apple-sm font-medium transition-all duration-200;
+  }
+
+  .card {
+    @apply bg-card-white rounded-apple-md shadow-apple-subtle hover:shadow-apple-medium transition-all duration-300 border border-border-gray/50;
+  }
+
+  .input-field {
+    @apply bg-white border border-border-gray rounded-apple-sm px-4 py-3 text-text-dark placeholder-text-medium focus:outline-none focus:ring-2 focus:ring-apple-blue focus:border-transparent transition-all duration-200;
+  }
+
+  .floating-label {
+    @apply absolute left-4 top-3 text-text-medium transition-all duration-200 pointer-events-none;
+  }
+
+  .floating-label-active {
+    @apply -top-2 left-3 text-xs bg-white px-1 text-apple-blue;
+  }
+
+  /* Apple-style gradient backgrounds */
+  .apple-gradient {
+    background: linear-gradient(135deg, rgb(0 122 255) 0%, rgb(90 200 250) 100%);
+  }
+
+  .apple-gradient-subtle {
+    background: linear-gradient(135deg, rgb(0 122 255 / 0.1) 0%, rgb(90 200 250 / 0.1) 100%);
+  }
+}
+
+/* Custom animations */
+@layer utilities {
+  .animate-slide-up {
+    animation: slideUp 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
